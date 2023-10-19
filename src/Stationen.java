@@ -4,25 +4,26 @@ import java.util.Scanner;
 
 public class Stationen {
 private  List<Vehicle> registreringAvLastBilar;
-public Stationen(List<Vehicle> registreringAvLastBilar){
-    this.registreringAvLastBilar =registreringAvLastBilar;
+
+
+public Stationen(List<Vehicle> registreringAvLastBilar) {
+    this.registreringAvLastBilar = registreringAvLastBilar;
+
 }
 
 public void dialogMedKunden(){
 
     Scanner input= new Scanner(System.in);
     List<Vehicle> registreringAvSkapBilar= new ArrayList<>();
-
+    KajStatusKontroller kajStatusKontroller= new KajStatusKontroller();
 
 
 
     while (true){
 
-        System.out.println("Välkomen till avlstningsstation Dumpa Mera\n" +
-                "Följ instruktionerarna nedan\n" +
-                "Tryck 1 för att se parkerade lastbilar\n" +
-                "Tryck 2 för att registrera en ny avlastande lastbil\n" +
+        System.out.println("Välkomen till avlstningsstation Dumpa Mera\n Följ instruktionerarna nedan\n Tryck 1 för att se parkerade lastbilar\n Tryck 2 för att registrera en ny avlastande lastbil\n " +
                 "Tryck 3 för att avsluta proggrammet  ");
+
         int userInput= input.nextInt();
         if (userInput==3) {
             System.out.println("Programet avslutas här\n välkommen åter");
@@ -33,11 +34,16 @@ public void dialogMedKunden(){
         // implementing the logic av showing the trucks parked in station begins
 
         else if (userInput==1) {
+                if (registreringAvSkapBilar.isEmpty()){
+                    System.out.println("Just nu finns det inga bilar parkerad ");
+                }else{
+                    for (Vehicle parkeradeVehclar: registreringAvSkapBilar
+                    ) {
+                        String kaj = parkeradeVehclar.getKajar();
+                        System.out.println(" Här är de last bilar som är parkerade just nu " + parkeradeVehclar.getVehicleTyp()+" "  + parkeradeVehclar.getVehicleWeight() + " Ton i kaj " + kaj  );
+                    }
+                }
 
-            for (Vehicle parkeradeVehclar: registreringAvSkapBilar
-            ) {
-                System.out.println(" Här är de last bilar som är parkerade just nu " + parkeradeVehclar.getVehicleTyp()+" "  + parkeradeVehclar.getVehicleWeight() + " Ton " );
-            }
 
         }
 
@@ -45,11 +51,7 @@ public void dialogMedKunden(){
         // implementing the logic av registering a truck to the station system begins
         else if (userInput==2){
 
-            System.out.println("Registerera en ny lastbil \n" +
-                    "Följ instruktionerarna nedan\n" +
-                    "Tryck 1 för skåpbil\n" +
-                    "Tryck 2 för lätt lastbil\n" +
-                    "Tryck 3 för tung lastbil" );
+            System.out.println("Registerera en ny lastbil \n Följ instruktionerarna nedan\n Tryck 1 för skåpbil\n Tryck 2 för lätt lastbil\n Tryck 3 för tung lastbil" );
 
             int newInput =input.nextInt();
             if (newInput==1){
@@ -58,18 +60,18 @@ public void dialogMedKunden(){
                     String vehicleTyp="skåpBil";
 
                     SkapBil skapBil = new SkapBil(vehicleTyp,0);
-                    double skapBilWeight = skapBil.getVehicleWeight();
                     registreringAvSkapBilar.add(skapBil);
-                    for (Vehicle vehicleSkapBil: registreringAvSkapBilar
+                    kajStatusKontroller.kontrolleraStatusPaKajar(skapBil);
+                    /*for (Vehicle vehicleSkapBil: registreringAvSkapBilar
                     ) {
                         System.out.println("Lastbilen av typen " + vehicleSkapBil.getVehicleTyp() + "som väger " + vehicleSkapBil.getVehicleWeight() + "har nu registererats");
                             skapBil.navigatingToKaj(skapBilWeight, vehicleTyp);
-                    }
+                    }*/
                 } else {
                     System.out.println("Det är fullt upp just nu i kajarna \n vänta tills någon av kajen är lediga");
                 }
 
-// Problemmet med att det vissas bara en skåpbil sparad i listan är att det skapas en nu list varje gång
+              // Problemmet med att det vissas bara en skåpbil sparad i listan är att det skapas en ny list varje gång
                 //skapBil.addSkapBilTillListan(skapBil);
                 //skapBil.getSkapBilarIListan();
 
@@ -82,7 +84,8 @@ public void dialogMedKunden(){
                     double vehicleWeight= input.nextDouble();
                     LattLastBil lattLastBil = new LattLastBil(vehicleTyp,vehicleWeight);
                     registreringAvSkapBilar.add(lattLastBil);
-                lattLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
+                    kajStatusKontroller.kontrolleraStatusPaKajar(lattLastBil);
+                //lattLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
                 } else {
                     System.out.println("Det är fullt upp just nu i kajarna  \n vänta tills någon av kajen är lediga");
                 }
@@ -95,9 +98,10 @@ public void dialogMedKunden(){
                     double vehicleWeight= input.nextDouble();
                     TungLastBil tungLastBil = new TungLastBil(vehicleTyp,vehicleWeight);
                     registreringAvSkapBilar.add(tungLastBil);
-                 tungLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
+                    kajStatusKontroller.kontrolleraStatusPaKajar(tungLastBil);
+                 //tungLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
                 } else {
-                    System.out.println("Det är fullt upp just nu i kajarna \n vänta tills någon av kajen är lediga");
+                    System.out.println("Kajarna är upptagna just nu \n vänta tills någon  kaj är ledig");
                 }            }else {
                 System.out.println("Fel inmatning \n Var god och följ instruktionerna nedean");
 

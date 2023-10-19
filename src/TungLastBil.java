@@ -3,8 +3,5 @@ public class TungLastBil extends Vehicle{
         super(vehicleTyp,vehicleWeight);
     }
 
-    @Override
-    public void navigatingToKaj(double vehicleWeight, String vehicleTyp) {
-        super.navigatingToKaj(vehicleWeight, vehicleTyp);
-    }
+
 }

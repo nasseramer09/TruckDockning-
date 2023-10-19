@@ -3,7 +3,7 @@ public class Vehicle {
     private String vehicleTyp;
     private double vehicleWeight;
 
-
+    private String kajar;
     public Vehicle(String vehicleTyp, double vehicleWeight){
         this.vehicleTyp=vehicleTyp;
         this.vehicleWeight=vehicleWeight;
@@ -38,32 +38,19 @@ public boolean delningAvkajen(double vehicleWeight){
 
 }
 
-    public void navigatingToKaj(double vehicleWeight, String vehicleTyp){
-        
-        if (vehicleTyp.equalsIgnoreCase("skåpBil")){
-            System.out.println(" Du kan parkera vid kaj A eller Kaj B");
-        } else if (vehicleTyp.equalsIgnoreCase("Lätt LastBil") ) {
-            if (vehicleWeight < 5) {
-                System.out.println("Du kan parkera vid kajen A ");
-            } else if (vehicleWeight>=5 && vehicleWeight <=9) {
-                System.out.println("Du kan parkera vid kajen C eller D");
-            }else {
-                System.out.println("Fel inmatning ");
-            }
-        }  else if (vehicleTyp.equalsIgnoreCase("Tung LastBil")) {
-            if (vehicleWeight<9){
-                System.out.println("Du kan parkera vid kajen D");
-            } else {
-                System.out.println("Du kan parkera vi kajen E");
-            }
+    public void navigatingToKaj(String kaj){
+        kajar=kaj;
 
-        } else {
-            System.out.println("Fel inmatning ");
-        }
 
     }
 
+    public String getKajar() {
+        return kajar;
+    }
 
+    public void setKajar(String kajar) {
+        this.kajar = kajar;
+    }
 
 
 }
