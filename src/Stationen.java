@@ -62,11 +62,7 @@ public void dialogMedKunden(){
                     SkapBil skapBil = new SkapBil(vehicleTyp,0);
                     registreringAvSkapBilar.add(skapBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(skapBil);
-                    /*for (Vehicle vehicleSkapBil: registreringAvSkapBilar
-                    ) {
-                        System.out.println("Lastbilen av typen " + vehicleSkapBil.getVehicleTyp() + "som väger " + vehicleSkapBil.getVehicleWeight() + "har nu registererats");
-                            skapBil.navigatingToKaj(skapBilWeight, vehicleTyp);
-                    }*/
+
                 } else {
                     System.out.println("Det är fullt upp just nu i kajarna \n vänta tills någon av kajen är lediga");
                 }
@@ -85,7 +81,7 @@ public void dialogMedKunden(){
                     LattLastBil lattLastBil = new LattLastBil(vehicleTyp,vehicleWeight);
                     registreringAvSkapBilar.add(lattLastBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(lattLastBil);
-                //lattLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
+
                 } else {
                     System.out.println("Det är fullt upp just nu i kajarna  \n vänta tills någon av kajen är lediga");
                 }
@@ -99,7 +95,7 @@ public void dialogMedKunden(){
                     TungLastBil tungLastBil = new TungLastBil(vehicleTyp,vehicleWeight);
                     registreringAvSkapBilar.add(tungLastBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(tungLastBil);
-                 //tungLastBil.navigatingToKaj(vehicleWeight, vehicleTyp);
+
                 } else {
                     System.out.println("Kajarna är upptagna just nu \n vänta tills någon  kaj är ledig");
                 }            }else {
