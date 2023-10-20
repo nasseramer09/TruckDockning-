@@ -60,6 +60,5 @@ public class KajStatusKontroller {
                 System.out.println("Just nu är kaj E upptagen \n välkommen åter");
             }
         }
-
 }
 }

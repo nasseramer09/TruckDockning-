@@ -8,6 +8,5 @@ public class Main {
         Stationen stationen = new Stationen(registreringAvSkapBilar);
         stationen.dialogMedKunden();
 
-
     }
 }

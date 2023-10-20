@@ -21,8 +21,12 @@ public void dialogMedKunden(){
 
     while (true){
 
-        System.out.println("Välkomen till avlstningsstation Dumpa Mera\n Följ instruktionerarna nedan\n Tryck 1 för att se parkerade lastbilar\n Tryck 2 för att registrera en ny avlastande lastbil\n " +
-                "Tryck 3 för att avsluta proggrammet  ");
+        System.out.println("""
+                Välkomen till avlstningsstation Dumpa Mera
+                 Följ instruktionerarna nedan
+                 Tryck 1 för att se parkerade lastbilar
+                 Tryck 2 för att registrera en ny avlastande lastbil
+                 Tryck 3 för att avsluta proggrammet \s""");
 
         int userInput= input.nextInt();
         if (userInput==3) {
@@ -42,6 +46,7 @@ public void dialogMedKunden(){
                         String kaj = parkeradeVehclar.getKajar();
                         System.out.println(" Här är de last bilar som är parkerade just nu " + parkeradeVehclar.getVehicleTyp()+" "  + parkeradeVehclar.getVehicleWeight() + " Ton i kaj " + kaj  );
                     }
+
                 }
 
 
@@ -58,18 +63,14 @@ public void dialogMedKunden(){
                 if (registreringAvSkapBilar.size()<5){
 
                     String vehicleTyp="skåpBil";
-
                     SkapBil skapBil = new SkapBil(vehicleTyp,0);
+
                     registreringAvSkapBilar.add(skapBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(skapBil);
 
                 } else {
-                    System.out.println("Det är fullt upp just nu i kajarna \n vänta tills någon av kajen är lediga");
+                    System.out.println("Det är fullt upp just nu i Dumpa mera \n Besök Dumpa mest stationen ");
                 }
-
-              // Problemmet med att det vissas bara en skåpbil sparad i listan är att det skapas en ny list varje gång
-                //skapBil.addSkapBilTillListan(skapBil);
-                //skapBil.getSkapBilarIListan();
 
 
             } else if (newInput==2) {
