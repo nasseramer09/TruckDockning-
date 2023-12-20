@@ -67,7 +67,7 @@ public void dialogMedKunden(){
                 if (registreringAvSkapBilar.size()<5){
 
                     String vehicleTyp="skåpBil";
-                    SkapBil skapBil = new SkapBil(vehicleTyp,0);
+                    SkapBil skapBil = new SkapBil();
 
                     registreringAvSkapBilar.add(skapBil);
 
