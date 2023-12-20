@@ -9,11 +9,11 @@ public class Vehicle {
 
     }
 
-    public double getVehicleWeight() {
+    public double getVehicleWeight(){
         return vehicleWeight;
     }
 
-    public String getVehicleTyp() {
+    public String getVehicleTyp(){
         return vehicleTyp;
     }
 
@@ -22,12 +22,11 @@ public class Vehicle {
             return  false;
     }
 
-
-    public String getKajar() {
+    public String getKajar(){
         return kajar;
     }
 
-    public void setKajar(String kajar) {
+    public void setKajar(String kajar){
         this.kajar = kajar;
 
 

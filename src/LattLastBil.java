@@ -4,7 +4,7 @@ public class LattLastBil extends Vehicle{
     }
 
     @Override
-    public boolean delningAvkajen(double vehicleWeight) {
+    public boolean delningAvkajen(double vehicleWeight){
         return super.delningAvkajen(vehicleWeight);
     }
 }

@@ -3,13 +3,13 @@ public class SkapBil extends Vehicle {
     private boolean statusKollPaKajA= true;
     private boolean  statusKollPaKajB= true;
 
-    public SkapBil(String vehicleTyp, double vehicleWeight) {
+    public SkapBil(String vehicleTyp, double vehicleWeight){
         super("Skåpbil", 3);
     }
 
 
     @Override
-    public boolean delningAvkajen(double vehicleWeight) {
+    public boolean delningAvkajen(double vehicleWeight){
         return super.delningAvkajen(vehicleWeight);
     }
 
