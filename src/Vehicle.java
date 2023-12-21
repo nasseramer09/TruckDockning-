@@ -1,4 +1,4 @@
-public class Vehicle {
+public class Vehicle{
 
     private String vehicleTyp;
     private double vehicleWeight;
@@ -11,25 +11,25 @@ public class Vehicle {
     }
 
 
-    public double getVehicleWeight() {
+    public double getVehicleWeight(){
         return vehicleWeight;
     }
 
-    public String getVehicleTyp() {
+    public String getVehicleTyp(){
         return vehicleTyp;
     }
 
-public boolean delningAvkajen(double vehicleWeight){
+    public boolean delningAvkajen(double vehicleWeight){
         return  false;
 
-}
+    }
 
 
-    public String getKajar() {
+    public String getKajar(){
         return kajar;
     }
 
-    public void setKajar(String kajar) {
+    public void setKajar(String kajar){
         this.kajar = kajar;
 
 

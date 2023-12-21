@@ -2,16 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Stationen {
-private  List<Vehicle> registreringAvLastBilar;
+public class Stationen{
+    private  List<Vehicle> registreringAvLastBilar;
 
 
-public Stationen(List<Vehicle> registreringAvLastBilar) {
-    this.registreringAvLastBilar = registreringAvLastBilar;
+    public Stationen(List<Vehicle> registreringAvLastBilar){
+        this.registreringAvLastBilar = registreringAvLastBilar;
 
-}
+    }
 
-public void dialogMedKunden(){
+    public void dialogMedKunden(){
 
     Scanner input= new Scanner(System.in);
     List<Vehicle> registreringAvSkapBilar= new ArrayList<>();
@@ -40,11 +40,12 @@ public void dialogMedKunden(){
         else if (userInput==1) {
                 if (registreringAvSkapBilar.isEmpty()){
                     System.out.println("Just nu finns det inga bilar parkerad ");
-                }else{
-                    for (Vehicle parkeradeVehclar: registreringAvSkapBilar
-                    ) {
+                }
+                else{
+                    for (Vehicle parkeradeVehclar: registreringAvSkapBilar){
                         String kaj = parkeradeVehclar.getKajar();
-                        System.out.println(" Här är de last bilar som är parkerade just nu " + parkeradeVehclar.getVehicleTyp()+" "  + parkeradeVehclar.getVehicleWeight() + " Ton i kaj " + kaj  );
+                        System.out.println(" Här är de last bilar som är parkerade just nu " + parkeradeVehclar.getVehicleTyp()+" "
+                                + parkeradeVehclar.getVehicleWeight() + " Ton i kaj " + kaj  );
                     }
 
                 }
@@ -68,12 +69,13 @@ public void dialogMedKunden(){
                     registreringAvSkapBilar.add(skapBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(skapBil);
 
-                } else {
+                }
+                else{
                     System.out.println("Det är fullt upp just nu i Dumpa mera \n Besök Dumpa mest stationen ");
                 }
 
 
-            } else if (newInput==2) {
+            } else if (newInput==2){
                 if (registreringAvSkapBilar.size()<5){
 
                     String vehicleTyp="Lätt Lastbil";
@@ -83,11 +85,13 @@ public void dialogMedKunden(){
                     registreringAvSkapBilar.add(lattLastBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(lattLastBil);
 
-                } else {
+                }
+                else{
                     System.out.println("Det är fullt upp just nu i kajarna  \n vänta tills någon av kajen är lediga");
                 }
 
-            }else if(newInput==3){
+            }
+            else if(newInput==3){
                 if (registreringAvSkapBilar.size()<5){
 
                     String vehicleTyp="Tung Lastbil";
@@ -97,9 +101,12 @@ public void dialogMedKunden(){
                     registreringAvSkapBilar.add(tungLastBil);
                     kajStatusKontroller.kontrolleraStatusPaKajar(tungLastBil);
 
-                } else {
+                }
+                else{
                     System.out.println("Kajarna är upptagna just nu \n vänta tills någon  kaj är ledig");
-                }            }else {
+                }
+            }
+            else{
                 System.out.println("Fel inmatning \n Var god och följ instruktionerna nedean");
 
             }

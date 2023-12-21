@@ -1,6 +1,6 @@
-public class SkapBil extends Vehicle {
+public class SkapBil extends Vehicle{
 
-    public SkapBil(String vehicleTyp, double vehicleWeight) {
+    public SkapBil(String vehicleTyp, double vehicleWeight){
         super("Skåpbil", 3);
     }
 
